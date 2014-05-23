@@ -1,0 +1,25 @@
+{
+  "name": "brick-boilerplate",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mozilla/brick-boilerplate",
+  "authors": [
+    "Matt Claypotch <thepotch@gmail.com>"
+  ],
+  "description": "Empty Brick Component Project",
+  "main": "dist/index.html",
+  "keywords": [
+    "brick",
+    "webcomponents"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "platform": "Polymer/platform"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "brick-boilerplate",
+  "version": "0.0.0",
+  "description": "Empty Brick Web Component Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mozilla/brick-boilerplate.git"
+  },
+  "keywords": [
+    "brick",
+    "webcomponent",
+    "boilerplate"
+  ],
+  "author": "mozilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mozilla/brick-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mozilla/brick-boilerplate",
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-jshint": "^1.6.1",
+    "gulp-vulcanize": "^0.1.1"
+  }
+}
