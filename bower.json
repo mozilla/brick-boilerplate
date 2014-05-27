@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "homepage": "https://github.com/mozilla/brick-boilerplate",
   "authors": [
-    "Matt Claypotch <thepotch@gmail.com>"
+    "Matt Claypotch <thepotch@gmail.com>",
+    "Christian Weiss <christian.x.weiss@gmail.com>"
   ],
   "description": "Empty Brick Component Project",
-  "main": "dist/index.html",
+  "main": "dist/element.html",
   "keywords": [
     "brick",
     "webcomponents"
@@ -20,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
+    "brick-common": "*",
     "platform": "Polymer/platform"
   }
 }

@@ -5,6 +5,5 @@
   "newcap": true,
   "undef": true,
   "unused": true,
-  "browser": true,
-  "predef": ["xtag"]
+  "browser": true
 }
