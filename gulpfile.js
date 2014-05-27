@@ -3,7 +3,6 @@ var gulp = require('gulp');
 
 var jshint = require('gulp-jshint'),
     connect = require('gulp-connect'),
-    jshint = require('gulp-jshint'),
     stylus = require('gulp-stylus'),
     ghpages = require('gulp-gh-pages'),
     concat = require('gulp-concat');
@@ -15,13 +14,12 @@ var paths = {
   'scripts': 'src/*.js',
   'stylesheets': 'src/*.styl',
   'src': 'src/*',
-  'gulpfile': 'gulpfile.js',
   'index': 'index.html',
   'bowerComponents': 'bower_components/**/*'
 };
 
 gulp.task('lint', function() {
-  return gulp.src([paths.scripts, paths.gulpfile])
+  gulp.src(paths.scripts)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -47,7 +45,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch([paths.scripts, paths.gulpfile], ['lint']);
+  gulp.watch(paths.scripts, ['lint']);
   gulp.watch(paths.stylesheets, ['styles']);
 });
 
