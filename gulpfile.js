@@ -17,7 +17,7 @@ var paths = {
   'src': 'src/*',
   'gulpfile': 'gulpfile.js',
   'index': 'index.html',
-  'bower_components': 'bower_components/**/*'
+  'bowerComponents': 'bower_components/**/*'
 };
 
 gulp.task('lint', function() {
@@ -37,7 +37,7 @@ gulp.task('gh-pages', function () {
   gulp.src([
     paths.index,
     paths.src,
-    paths.bower_components
+    paths.bowerComponents
   ],{base:'./'})
     .pipe(ghpages(gitRemoteUrl));
 });
