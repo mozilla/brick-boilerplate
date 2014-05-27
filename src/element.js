@@ -5,7 +5,7 @@
   // Lifecycle methods
 
   ElementPrototype.createdCallback = function () {
-
+    console.log("created");
   };
 
   ElementPrototype.attachedCallback = function () {
