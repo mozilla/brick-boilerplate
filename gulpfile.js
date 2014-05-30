@@ -7,8 +7,6 @@ var jshint = require('gulp-jshint'),
     ghpages = require('gulp-gh-pages'),
     concat = require('gulp-concat');
 
-var gitRemoteUrl = 'https://github.com/dotch/brick-boilerplate';
-
 var paths = {
   'main': 'src/element.html',
   'scripts': 'src/*.js',
@@ -33,7 +31,9 @@ gulp.task('styles', function() {
 
 gulp.task('gh-pages', function () {
   gulp.src([
-    paths.index
+    paths.index,
+    paths.src,
+    paths.bowerComponents
   ],{base:'./'})
     .pipe(ghpages());
 });
