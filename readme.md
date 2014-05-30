@@ -1,4 +1,4 @@
-# brick-boilerplate;
+# Brick-Boilerplate
 
 > A [Brick](https://github.com/mozilla/brick/) custom element starter-kit.
 
@@ -6,19 +6,9 @@
 
 [Check it live!](http://my-user.github.io/my-repo)
 
-## Install
-
-Install the component using [Bower](http://bower.io/):
-
-```sh
-$ bower install my-repo --save
-```
-
-Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
-
 ## Usage
 
-1. Import Web Components' polyfill:
+1. Import Web Components polyfill:
 
     ```html
     <script src="bower_components/platform/platform.js"></script>
@@ -27,13 +17,13 @@ Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/my-repo/src/my-element.html">
+    <link rel="import" href="src/element.html">
     ```
 
-3. Start using it!
+3. Start using it:
 
     ```html
-    <my-element></my-element>
+    <custom-element></custom-element>
     ```
 
 ## Options
