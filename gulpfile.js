@@ -1,10 +1,10 @@
 /* jshint node:true */
-var gulp = require('gulp');
-
-var jshint = require('gulp-jshint'),
+var gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     connect = require('gulp-connect'),
     stylus = require('gulp-stylus'),
     ghpages = require('gulp-gh-pages'),
+    bump = require('gulp-bump'),
     concat = require('gulp-concat');
 
 var paths = {
@@ -16,11 +16,13 @@ var paths = {
   'bowerComponents': 'bower_components/**/*'
 };
 
+
 gulp.task('lint', function() {
   gulp.src(paths.scripts)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
+
 
 gulp.task('styles', function() {
   gulp.src(paths.stylesheets)
@@ -29,14 +31,10 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('gh-pages', function () {
-  gulp.src([
-    paths.index,
-    paths.src,
-    paths.bowerComponents
-  ],{base:'./'})
-    .pipe(ghpages());
-});
+
+// build scripts and styles
+gulp.task('build', ['lint','styles']);
+
 
 gulp.task('connect', function() {
   connect.server({
@@ -44,12 +42,32 @@ gulp.task('connect', function() {
   });
 });
 
+
 gulp.task('watch', function () {
   gulp.watch(paths.scripts, ['lint']);
   gulp.watch(paths.stylesheets, ['styles']);
 });
 
-gulp.task('build', ['lint','styles']);
-gulp.task('server', ['lint','styles','connect','watch']);
-gulp.task('deploy', ['gh-pages']);
 
+// do a build, start a server, watch for changes
+gulp.task('server', ['build','connect','watch']);
+
+
+// Bum up the Version (patch)
+gulp.task('bump', function(){
+  console.log(arguments);
+  gulp.src(['bower.json','package.json'])
+  .pipe(bump())
+  .pipe(gulp.dest('./'));
+});
+
+
+// publish to gh pages
+gulp.task('deploy', function () {
+  gulp.src([
+    paths.index,
+    paths.src,
+    paths.bowerComponents
+  ],{base:'./'})
+    .pipe(ghpages());
+});

@@ -28,5 +28,8 @@
     "gulp-gh-pages": "^0.3.2",
     "gulp-jshint": "^1.6.1",
     "gulp-stylus": "^1.0.1"
+  },
+  "dependencies": {
+    "gulp-bump": "^0.1.8"
   }
 }
