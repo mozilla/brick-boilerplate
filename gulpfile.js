@@ -39,7 +39,9 @@ gulp.task('gh-pages', function () {
 });
 
 gulp.task('connect', function() {
-  connect.server();
+  connect.server({
+    port: 3001
+  });
 });
 
 gulp.task('watch', function () {
