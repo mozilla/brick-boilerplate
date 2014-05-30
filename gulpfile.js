@@ -33,9 +33,7 @@ gulp.task('styles', function() {
 
 gulp.task('gh-pages', function () {
   gulp.src([
-    paths.index,
-    paths.src,
-    paths.bowerComponents
+    paths.index
   ],{base:'./'})
     .pipe(ghpages());
 });
