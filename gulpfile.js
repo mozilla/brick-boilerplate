@@ -37,7 +37,7 @@ gulp.task('gh-pages', function () {
     paths.src,
     paths.bowerComponents
   ],{base:'./'})
-    .pipe(ghpages(gitRemoteUrl));
+    .pipe(ghpages());
 });
 
 gulp.task('connect', function() {
