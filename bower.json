@@ -7,7 +7,7 @@
     "Christian Weiss <christian.x.weiss@gmail.com>"
   ],
   "description": "Empty Brick Component Project",
-  "main": "dist/element.html",
+  "main": "src/element.html",
   "keywords": [
     "brick",
     "webcomponents"
