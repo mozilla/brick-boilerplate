@@ -1,11 +1,13 @@
 /* jshint node:true */
-var gulp = require('gulp'),
-    jshint = require('gulp-jshint'),
-    connect = require('gulp-connect'),
-    stylus = require('gulp-stylus'),
-    ghpages = require('gulp-gh-pages'),
-    bump = require('gulp-bump'),
-    concat = require('gulp-concat');
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var connect = require('gulp-connect');
+var stylus = require('gulp-stylus');
+var ghpages = require('gulp-gh-pages');
+var bump = require('gulp-bump');
+var concat = require('gulp-concat');
+var helptext = require('gulp-helptext');
+
 
 var paths = {
   'main': 'src/element.html',
@@ -15,7 +17,6 @@ var paths = {
   'index': 'index.html',
   'bowerComponents': 'bower_components/**/*'
 };
-
 
 gulp.task('lint', function() {
   gulp.src(paths.scripts)
@@ -48,7 +49,6 @@ gulp.task('watch', function () {
   gulp.watch(paths.stylesheets, ['styles']);
 });
 
-
 // do a build, start a server, watch for changes
 gulp.task('server', ['build','connect','watch']);
 
@@ -61,6 +61,13 @@ gulp.task('bump', function(){
   .pipe(gulp.dest('./'));
 });
 
+gulp.task('help', helptext({
+  'default': 'Shows the help message',
+  'help': 'Shis help message',
+  'styles': 'Compiles stylus',
+  'lint': 'Runs JSHint on your code',
+  'server': 'Start the development server'
+}));
 
 // publish to gh pages
 gulp.task('deploy', function () {
@@ -71,3 +78,5 @@ gulp.task('deploy', function () {
   ],{base:'./'})
     .pipe(ghpages());
 });
+
+gulp.task('default', ['help']);

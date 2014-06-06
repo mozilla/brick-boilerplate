@@ -30,6 +30,8 @@
     "gulp-stylus": "^1.0.1"
   },
   "dependencies": {
-    "gulp-bump": "^0.1.8"
+    "gulp-bump": "^0.1.8",
+    "gulp-helptext": "0.0.6",
+    "gulp": "^3.7.0"
   }
 }
