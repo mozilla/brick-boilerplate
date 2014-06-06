@@ -46,37 +46,34 @@ Event         | Description
 
 ## Development
 
-In order to run it locally you'll need to fetch some dependencies and a basic server setup.
+Brick components use [Stylus](http://learnboost.github.com/stylus/) to generate their CSS.
+
+This repository comes outfitted with a set of tools to ease the development process.
+
+To get started:
 
 * Install [Bower](http://bower.io/) & [Gulp](http://gulpjs.com/):
 
     ```sh
-    $ [sudo] npm install -g bower gulp
+    $ npm install -g bower gulp
     ```
 
 * Install local dependencies:
 
     ```sh
-    $ bower install && npm install
+    $ npm install && bower install
     ```
 
-* To test your project, start the development server and open `http://localhost:3001`.
+While developing your component, there is a development server that will watch your files for changes and automatically re-build your styles and re-lint your code.
 
-    ```sh
-    $ gulp server
-    ```
+To run the development server:
 
-* To build your css and lint your scripts.
+* Run `gulp server`
+* Navigate to `http:localhost:3001`
 
-    ```sh
-    $ gulp build
-    ```
+To simply build and lint your code, run `gulp build`.
 
-* To provide a live demo, send everything to `gh-pages` branch.
-
-    ```sh
-    $ gulp deploy
-    ```
+You can also push your code to GitHub Pages by running `gulp deploy`.
 
 ## License
 
