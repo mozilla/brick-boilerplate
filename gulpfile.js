@@ -1,13 +1,13 @@
 /* jshint node:true */
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var connect = require('gulp-connect');
-var stylus = require('gulp-stylus');
-var ghpages = require('gulp-gh-pages');
 var bump = require('gulp-bump');
 var concat = require('gulp-concat');
+var connect = require('gulp-connect');
+var ghpages = require('gulp-gh-pages');
+var gulp = require('gulp');
 var helptext = require('gulp-helptext');
-
+var jshint = require('gulp-jshint');
+var karma = require('gulp-karma');
+var stylus = require('gulp-stylus');
 
 var paths = {
   'main': 'src/element.html',
@@ -15,7 +15,8 @@ var paths = {
   'stylesheets': 'src/*.styl',
   'src': 'src/*',
   'index': 'index.html',
-  'bowerComponents': 'bower_components/**/*'
+  'bowerComponents': 'bower_components/**/*',
+  'testfiles': ['test/*', 'bower_components/platform/platform.js']
 };
 
 gulp.task('lint', function() {
@@ -24,14 +25,12 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-
 gulp.task('styles', function() {
   gulp.src(paths.stylesheets)
     .pipe(stylus())
     .pipe(concat('element.css'))
     .pipe(gulp.dest('src'));
 });
-
 
 // build scripts and styles
 gulp.task('build', ['lint','styles']);
@@ -52,8 +51,19 @@ gulp.task('watch', function () {
 // do a build, start a server, watch for changes
 gulp.task('server', ['build','connect','watch']);
 
+// run the tests
+gulp.task('test', function() {
+  return gulp.src(paths.testfiles)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      throw err;
+    });
+});
 
-// Bum up the Version (patch)
+// Bump up the Version (patch)
 gulp.task('bump', function(){
   console.log(arguments);
   gulp.src(['bower.json','package.json'])
@@ -63,10 +73,13 @@ gulp.task('bump', function(){
 
 gulp.task('help', helptext({
   'default': 'Shows the help message',
-  'help': 'Shis help message',
+  'help': 'This help message',
   'styles': 'Compiles stylus',
   'lint': 'Runs JSHint on your code',
-  'server': 'Start the development server'
+  'server': 'Starts the development server',
+  'test': 'Runs the tests',
+  'bump': 'Bumps up the Version',
+  'deploy': 'Publish to Github pages'
 }));
 
 // publish to gh pages
