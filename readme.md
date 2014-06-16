@@ -2,9 +2,11 @@
 
 > A [Brick](https://github.com/mozilla/brick/) custom element starter-kit.
 
+Generated from the [generator-brick](https://github.com/dotch/generator-brick/) yeoman generator.
+
 ## Demo
 
-[Check it live!](http://my-user.github.io/my-repo)
+[Check it live!](http://mozilla.github.io/brick-boilerplate)
 
 ## Usage
 

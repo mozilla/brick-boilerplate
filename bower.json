@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "homepage": "https://github.com/mozilla/brick-boilerplate",
   "authors": [
-    "Matt Claypotch <thepotch@gmail.com>",
-    "Christian Weiss <christian.x.weiss@gmail.com>"
+    "mozilla"
   ],
-  "description": "Empty Brick Component Project",
+  "description": "Empty Brick Web Component Boilerplate",
   "main": "src/element.html",
   "keywords": [
     "brick",
