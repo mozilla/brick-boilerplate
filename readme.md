@@ -1,3 +1,5 @@
+# This project has been deprecated in favor of using the Brick Yeoman Generator found here: https://github.com/mozbrick/generator-brick
+
 # Brick-Boilerplate
 
 > A [Brick](https://github.com/mozilla/brick/) custom element starter-kit.
